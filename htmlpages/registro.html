@@ -1,0 +1,99 @@
+<DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <meta lang="es">
+    <meta http-x-ua-compatible content="IE-edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; font-src 'self' https://fonts.googleapis.com; style-src 'self' https: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline';">
+    <meta http-x-ua-compatible content="firefox-beta">
+    <meta name="viewport" content="width:device-width, initial-scale=0.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylsheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/gont/bootrap-icons.css">
+    <script>
+    function makeArray(){for(i=0;i<makeArray.arguments.length;i++)this[i+1]=makeArray.arguments[i]}var months=new makeArray=( 'Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');var date=new Date();var day=date.getDate();var month=date.getMonth()+1;var yy=date.getYear();var year=(yy<1000)?yy+1900:yy;document.write("hoy es "+day+ " de ")+months[month]+" del "+year;
+    </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>mangas y ropa de moda</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boostrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="htmlpages/js/new.js" defer ></script>
+
+    </head>
+  
+  
+  
+    <body>
+      <body>
+    <header>
+    <button id="hamburger-menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="menu" id="menu">
+      <ul>
+        <li><a href="start.html">Inicio</a></li>
+        <li><a href="products.html">Productos</a></li>
+        <li><a href="masproducts.html">Mas Productos</a></li>
+        <li><a href="contactanos.html">Contactos</a></li>
+        <li><a href="registro.html">Registrate</a></li>
+      </ul>
+    </nav>
+   
+  </header>
+  <input type="text" id="searchInput" placeholder="Buscar...">
+  <button onclick="search()">Buscar</button>
+  <div id="results"></div>
+<br><br>
+
+<h2>Registrate para que disfrute de nuestro beneficios!!</h2>
+    <div class="container">
+     <div class="columna-izquierda">
+  
+      <form action="procesarregistro.php" method="POST">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+        <br><br>
+
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" required>
+        <br><br>
+        
+        <label for="producto">Producto:</label>
+        <select id="producto" name="producto" required>
+          <option value="mangas">Mangas</option>
+          <option value="blusas">Blusas</option>
+          <option value="artesania">Artesanía</option>
+          
+        <input type="submit" value="Registrarse">
+      </form>
+    </div> 
+   <div class="columna-derecha">
+    <div id="video-container">
+      <iframe src="image/publica.mp4?autoplay=1" loading="lazy" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <br><br>
+
+    <iframe src="image/fotografia profesional.mp4?autoplay=1" loading="lazy" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <br><br>
+  
+
+        </div>
+
+     
+     </div>   
+    </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+header { 
+  
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    background-color: #494949;
+    font-family: 'Tangerine', serif;
+          font-size: 48px;
+          text-shadow: 6px 6px 6px #f7f3f3;
+          align-items: center;
+    
+       
+  }
+  
+  
+  
+  .hamburger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+  }
+  
+  #hamburger-menu {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent; /* adjust according to your theme */
+    color: #ffffff; /* adjust according to your theme */
+    cursor: pointer;
+  }
+  
+  .menu {
+    display: none;
+    position: fixed;
+    top: 10%;
+    right: 0;
+    width: 100%;
+    height: 46vh;
+    background-color: #033e4952; /* adjust according to your theme */
+    opacity: 0.8;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+  .menu.active {
+    display: block;
+  }
+  
+  .menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .menu li {
+    padding: 10px;
+    border-bottom: 1px solid #0bedfd; /* adjust according to your theme */
+    
+  }
+  
+  .menu li a {
+    color: #3feff8; /* adjust according to your theme */
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    
+  }
+  
+  .menu li a:hover {
+    background-color: #011113; /* adjust according to your theme */
+  }
+  
+  
+  
+  input[type="text" id="searchInput"] {
+    width: 300px;
+    padding: 5px;
+    margin-right: 10px;
+    borde-radius: 20px
+  }
+  
+  button {
+    padding: 5px 10px;
+    border-top-style: groove;
+    border-radius: 20px;
+  }
+  
+  #results {
+    margin-top: 20px;
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #494949;
+    font-family: 'Tangerine', serif;
+          font-size: 46px;
+          text-shadow: 8px 8px 8px #030303;
+      
+        }
+        h2{
+         
+          font-family: 'Ubuntu', sans-serif;
+      color: #0c4232;
+           font-size: 46px;
+      text-shadow: 8px 8px 8px #0e0c0c;
+      
+        }
+        form {
+      
+            width: 50%;
+           border-radius: 17px;
+            margin: 0;
+            background-color: rgb(4, 37, 40);
+            color: white;
+            padding: 20px
+            float: left;
+            box-shadow: 10px 10px 10px #0e0e0e;
+            
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 10px;
+          }
+          
+          input[type="text"],
+          input[type="email"],
+          input[type="tel"],
+          select {
+            width: 50%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+          }
+          
+          input[type="submit"] {
+            background-color: rgb(3, 72, 75);
+            color: rgb(17, 15, 15);
+            padding: 10px 20px;
+            border-top-style: groove;
+            cursor: pointer;
+            border-radius: 20px;
+          }
+          
+          input[type="submit"]:hover {
+            background-color: rgb(3, 177, 177);
+    
+          }
+          
+
+          @media (max-width: 450px) {
+            .hamburger {
+              display: block;
+            }
+          
+            .menu {
+              display: flex;
+              position: static;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: auto;
+              background-color: transparent;
+              opacity: 1;
+            }
+            h2, h3{
+              font-family: 'Montserrat', sans-serif;
+              font-size: 26px;
+            }
+           
+            
+          
+          }
+          @media (max-width: 768px) {
+            .menu {
+              display: none;
+            }
+          
+            .hamburger-menu {
+              display: block;
+            }
+            header {
+              background-color: #494949;
+              font-size: 36px;
+              position: fixed;
+             
+              
+            }
+          
+          
+           body{
+            background-color: #494949;
+            font-family: 'Tangerine', serif;
+                  font-size: 35px;
+                  text-shadow: 6px 6px 6px #e4cece;
+                  align-items: center;
+           }
+           h2, h3{
+            font-size: 36px;
+            font-family: 'Montserrat', sans-serif;
+          }
+        }
+

@@ -1,0 +1,143 @@
+<DOCTYPE html>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width:device-width, initial-scale=0.1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; font-src 'self' https://fonts.googleapis.com; style-src 'self' https: 'unsafe-inline'; script-src 'self' https: 'unsafe-inline';">
+	  <title>PayPal JS SDK Standard Integration</title>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+	 <script src="curl -v POST https://api-m.sandbox.paypal.com/v1/oauth2/token  -u "AeLXrHS4S3QC60zn67hs77KG4QYVwnPKwN6v_9Gd5vm0NWT_4ZOziMPgbLfuCv7wqSqfYmT1TOJg-XCW"  -H "Content-Type: application/x-www-form-urlencoded"  -d "grant_type=client_credentials"></script>
+	</head>
+	<body>
+	  <header>
+		<button id="hamburger-menu">
+		  <i class="fas fa-bars"></i>
+		</button>
+		<nav class="menu" id="menu">
+		  <ul>
+			<li><a href="start.html">Inicio</a></li>
+			<li><a href="products.html">Productos</a></li>
+			<li><a href="masproducts.html">mas Productos</a></li>
+			<li><a href="contactanos.html">Contactos</a></li>
+			<li><a href="registro.html">Registrate</a></li>
+		  </ul>
+		</nav>
+	  </header>
+    <div id="paypal-button-container"></div>
+    <p id="result-message"></p>
+    
+    <!-- Initialize the JS-SDK -->
+	<script>
+	window.paypal
+  .Buttons({
+    style: {
+      shape: "rect",
+      layout: "vertical",
+      color: "gold",
+      label: "paypal",
+    } ,
+    async createOrder() {
+      try {
+        const response = await fetch("/api/orders", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // use the "body" param to optionally pass additional order information
+          // like product ids and quantities
+          body: JSON.stringify({
+            cart: [
+              {
+                id: "YOUR_PRODUCT_ID",
+                quantity: "YOUR_PRODUCT_QUANTITY",
+              },
+            ],
+          }),
+        });
+
+        const orderData = await response.json();
+
+        if (orderData.id) {
+          return orderData.id;
+        }
+        const errorDetail = orderData?.details?.[0];
+        const errorMessage = errorDetail
+          ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
+          : JSON.stringify(orderData);
+
+        throw new Error(errorMessage);
+      } catch (error) {
+        console.error(error);
+        // resultMessage(`Could not initiate PayPal Checkout...<br><br>${error}`);
+      }
+    } ,
+    async onApprove(data, actions) {
+      try {
+        const response = await fetch(`/api/orders/${data.orderID}/capture`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const orderData = await response.json();
+        // Three cases to handle:
+        //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+        //   (2) Other non-recoverable errors -> Show a failure message
+        //   (3) Successful transaction -> Show confirmation or thank you message
+
+        const errorDetail = orderData?.details?.[0];
+
+        if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
+          // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+          // recoverable state, per
+          // https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
+          return actions.restart();
+        } else if (errorDetail) {
+          // (2) Other non-recoverable errors -> Show a failure message
+          throw new Error(`${errorDetail.description} (${orderData.debug_id})`);
+        } else if (!orderData.purchase_units) {
+          throw new Error(JSON.stringify(orderData));
+        } else {
+          // (3) Successful transaction -> Show confirmation or thank you message
+          // Or go to another URL:  actions.redirect('thank_you.html');
+          const transaction =
+            orderData?.purchase_units?.[0]?.payments?.captures?.[0] ||
+            orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
+          resultMessage(
+            `Transaction ${transaction.status}: ${transaction.id}<br>
+          <br>See console for all available details`
+          );
+          console.log(
+            "Capture result",
+            orderData,
+            JSON.stringify(orderData, null, 2)
+          );
+        }
+      } catch (error) {
+        console.error(error);
+        resultMessage(
+          `Sorry, your transaction could not be processed...<br><br>${error}`
+        );
+      }
+    } ,
+  })
+  .render("#paypal-button-container"); 
+
+	</script>
+    <script
+      src="https://www.paypal.com/sdk/js?client-id=test&buyer- 
+      country=US&currency=USD&components=buttons&enable-funding=venmo"
+      data-sdk-integration-source="developer-studio"
+    ></script>
+    <script src="server.js"></script>
+    
+  </body>
+</html>
+

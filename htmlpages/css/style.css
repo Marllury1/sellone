@@ -1,0 +1,404 @@
+header { 
+  
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-image: url('../image/1aec4f6c038d639e96b2e78e672faad0aba26412_hq.gif');
+  font-family: 'crossorigin', serif;
+        font-size: 48px;
+        text-shadow: 6px 6px 6px #f7f3f3;
+        align-items: center;
+  
+     
+}
+
+
+
+.hamburger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+
+#hamburger-menu {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent; /* adjust according to your theme */
+  color: #ffffff; /* adjust according to your theme */
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 100%;
+  height: 46vh;
+  background-color: #033f4973; /* adjust according to your theme */
+  opacity: 0.8;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.menu.active {
+  display: block;
+}
+
+.menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu li {
+  padding: 10px;
+  border-bottom: 1px solid #0bedfd; /* adjust according to your theme */
+  
+}
+
+.menu li a {
+  color: #0ff1fd; /* adjust according to your theme */
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  
+}
+
+.menu li a:hover {
+  background-color: #011113; /* adjust according to your theme */
+}
+
+
+
+input[type="text" id="searchInput"] {
+  width: 300px;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+button{
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+#results {
+  margin-top: 20px;
+}
+.container {
+  display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+}
+
+.columna-izquierda {
+  flex: 1;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            
+}
+.columna-izquierda img {
+  display: flex;
+  width: 200px;
+  height: 200px; /* Ajusta el tamaño según tus necesidades */
+  border-radius: 50%; /* Esto hace que las imágenes tengan forma ovalada */
+  margin-bottom: 10px; /* Espacio entre las imágenes */
+  object-fit: cover;
+}
+
+
+.columna-derecha {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; 
+  height: 0;
+  width: 100%; /* Ajusta esto según el tamaño que desees */
+    height: auto;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+}
+iframe {
+  width: 400px;
+  height: 400px;
+}
+.miniatura {
+  width: 100px; /* Ancho inicial de la imagen */
+  cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+}
+
+/* Estilo para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Se queda fijo en la pantalla */
+  z-index: 1; /* Se sitúa sobre los otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  overflow: auto; /* Habilita el scroll si es necesario */
+  background-color: rgb(0,0,0); /* Color de fondo */
+  background-color: rgba(0,0,0,0.9); /* Negro con opacidad */
+}
+
+/* Estilo para la imagen dentro del modal */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Animación de aparición */
+.modal-content {    
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* Botón para cerrar el modal */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilo para la imagen ampliada */
+.miniatura:active {
+  transform: scale(3); /* Aumenta el tamaño de la imagen al hacer clic */
+}
+
+
+body, html {
+  margin: 10px;
+  padding: 0;
+ background-image: url('../image/OnePlus-8-Pro-Stock-Wallpaper-1440x3168-05.jpg');
+  font-family: 'Montserrat', sans-serif;
+        font-size: 60px;
+        text-shadow: 8px 8px 8px #f7f3f3;
+      }
+      h2{
+        text-align: center;
+        color: rgb(105, 12, 114);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 46px;
+    text-shadow: 8px 8px 8px #060707de;
+    
+      }
+      h4{
+        font-family: 'Montserrat', sans-serif; 
+        color: rgb(105, 12, 114);
+        text-shadow: 8px 8px 8px #080a0ade;
+      }
+      #si {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      
+      #si img {
+        width: 600px; 
+        height: 600px; 
+        object-fit: cover; /* Evita la distorsión de la imagen */
+        border-radius: 50%; 
+        margin: 5px;
+        box-shadow: 10px 10px 10px  #0a0a0a;
+      }
+      #portafolio img{
+        display: flexbox;
+        width: 400px; 
+        height: 400px;
+        object-fit: cover; 
+        border-radius: 50%; 
+        margin: 5px; 
+        box-shadow: 10px 10px 10px  #0a0a0a;
+      }
+      
+         
+      .gif-container {
+        width: 300px; 
+        height: auto;
+        overflow: hidden;
+      }
+      
+      .gif-container img {
+        width: 100%;
+        height: auto;
+      }
+      
+      form {
+      
+        width: 50%;
+       
+        margin: 0;
+        background-image: url('../image/OnePlus-8-Pro-Stock-Wallpaper-1440x3168-05.jpg');
+        color: white;
+        padding: 20px;
+        box-shadow: 10px 10px 10px #0e0e0e;
+        float: left;
+        border: 3px solid #264fd6;
+        border-radius: 20px;
+        
+      }
+      
+      label {
+        font-size: medium;
+        display: block;
+        margin-bottom: 10px;
+        color:rgb(105, 12, 114)
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="password"],
+      select {
+        width: 50%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 3PX solid #264fd6;
+        border-radius: 20px;
+        
+      }
+      
+      input[type="submit"] {
+        background-color:  #264fd6;
+        color: rgb(252, 252, 252);
+        padding: 10px 20px;
+        border-top-style: groove;
+        cursor: pointer;
+        border-radius: 20px;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: rgb(34, 131, 241);
+
+      }
+      input[type="submit" value="Pagar"]{
+        background-color: rgb(3, 72, 75);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+
+      }
+      input[type="submit" value="Pagar"]:hover{
+        background-color: rgb(3, 177, 177);
+      }
+     
+        h1{
+          color: rgb(34, 131, 241);
+        }
+      
+   h3{
+    font-family: 'Montserrat', sans-serif;
+    color:  rgb(105, 12, 114);
+    font-size: 46px;
+    text-shadow: 8px 8px 8px  #474646;
+   }
+   img{
+    width: 100px;
+    margin: 0;
+    padding: 0; 
+    border-radius: 80px;
+    border: 3px solid rgb(34, 131, 241);
+    box-shadow: 6px 6px 6px #494949;
+   }
+   .columna-derecha, .columna-izquierda{
+    display: inline-block;
+   }
+   svg{
+    float: right;
+   }
+  
+
+.navegacion {
+  text-align: center; 
+  font-size: 100px; 
+  cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+  transition: transform 0.2s; /* Agrega una transición suave al agrandar */
+  list-style-type: none;
+}
+
+/* Al pasar el cursor por encima, agranda el icono un 20% */
+.navegacion .fa:hover {
+  transform: scale(1.2);
+} 
+.columna, .fa img {
+ border-radius: 50px;
+ padding: 5px;
+
+}
+  
+  @media only screen and (min-width: 250px) and (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    display: flex;
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    opacity: 1;
+  }
+  h2, h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+  }
+ 
+  
+
+}
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+  h2, h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+}
